@@ -1,4 +1,4 @@
-FROM nginx:1.13
+FROM nginx:1.23.3
 
 COPY dev-ssl /root/ssl
 

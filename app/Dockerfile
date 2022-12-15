@@ -1,4 +1,4 @@
-FROM debian:9
+FROM debian:11
 
 RUN apt-get update \
     && apt-get install -y \
@@ -13,18 +13,18 @@ RUN apt-get update \
         unzip \
         gettext-base \
         socat \
-    && wget -qO- https://deb.nodesource.com/setup_8.x | bash \
+    && wget -qO- https://deb.nodesource.com/setup_14.x | bash \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g yarn 
 
 # install LL app
-ENV LL_TAG=v2.8.2
-RUN git clone https://github.com/LearningLocker/learninglocker.git /opt/learninglocker \
+ENV LL_TAG=ileda
+RUN git clone https://github.com/aggeorgiev/learninglocker.git /opt/learninglocker \
     && cd /opt/learninglocker \
     && git checkout $LL_TAG \
-    && yarn install \
+    && npm_config_build_from_source=true yarn install --ignore-engines \
     && yarn build-all
 
 WORKDIR /opt/learninglocker

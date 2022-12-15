@@ -1,6 +1,6 @@
-# Learning Locker version 2 in Docker
+# Learning Locker in Docker
 
-It is a dockerized version of Learning Locker (LL) version 2 based on the installation guides at http://docs.learninglocker.net/guides-custom-installation/
+It is a dockerized version of Learning Locker (LL) version 7.1.1 based on the installation guides at http://docs.learninglocker.net/guides-custom-installation/
 
 ## Architecture
 
@@ -31,7 +31,7 @@ To build the images:
 ./build-dev.sh
 ```
 
-To configure adjust settings in .env:
+To configure just copy over the content from .env.example to .env and change the values to your needs:
 
 * DOCKER_TAG - git commit (SHA-1) to be used ("dev" for images built by build-dev.sh)
 * DATA_LOCATION - location on Docker host where volumes are created
